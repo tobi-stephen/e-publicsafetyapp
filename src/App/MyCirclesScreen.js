@@ -19,7 +19,8 @@ import {
   ListItem,
   Fab,
 } from "native-base";
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, StatusBar,
+} from 'react-native';
 import authActions from '../redux/auth/actions';
 import co6s from '../Config/co6s';
 import Utility from '../Services/Utility';
@@ -62,6 +63,7 @@ class MyCirclesScreen extends React.Component {
       }
       return (
         <Container>
+            <StatusBar hidden={true}/>
         <Header info>
           <Left>
             <Button
@@ -80,8 +82,8 @@ class MyCirclesScreen extends React.Component {
             {co6s.length > 0?
                 <List>
                     {
-                        co6s.map( item =>
-                            <ListItem button onPress={() => this.props.navigation.navigate('CircleDetail', {name: item.name, id: item.id, co6_instance_id: item.co6_instance_id, members: item.members, geopoints: item.geopoints})}>
+                        co6s.map( (item, i) =>
+                            <ListItem button key={i} onPress={() => this.props.navigation.navigate('CircleDetail', {name: item.name, id: item.id, co6_instance_id: item.co6_instance_id, members: item.members, geopoints: item.geopoints})}>
                                 <Icon success name="ios-people" />
                                 <Body><Text>{item.name}</Text></Body>
                                 <Right><Icon name="ios-arrow-forward"></Icon></Right>

@@ -17,7 +17,7 @@ const routes = [
     { label: "Dashboard", icon: 'md-calendar', route: 'Home'}, 
     { label: "My Location", icon: 'ios-recording', 'route': 'MyLocation'},
     { label: "Circle of Six", icon: 'ios-notifications', route: 'MyCircles'},
-    { label: "CircleGeofence", icon: 'ios-cloud-outline', route: "CircleGeofence"},
+    // { label: "CircleGeofence", icon: 'ios-cloud-outline', route: "CircleGeofence"},
     //{ label: "Find a member", icon: 'paper'},
     { label: "Help", icon: 'paper', route: 'Help'},
     { label: "Logout", icon: 'clock', route: 'Logout'}

@@ -22,18 +22,30 @@ import CircleGeofence from '../App/CircleGeofence';
 import ChooseOrganizationScreen from '../App/ChooseOrganizationScreen';
 // Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
 // goes here.
+import { YellowBox } from 'react-native';
+YellowBox.ignoreWarnings(["Warning: ListView is deprecated"])
 
+const CircleStack = createStackNavigator(
+    {
+        MyCircles: MyCirclesScreen,
+        CircleDetail: CircleDetailScreen,
+        CircleGeofence: CircleGeofence,
+    },
+    {
+        mode: 'modal',
+        headerMode: 'none'
+    }
+)
 const AppStack = createDrawerNavigator(
   { 
     Home: HomeScreen, 
     Activity: ActivityScreen,
     MyLocation: MyLocationScreen,
-    MyCircles: MyCirclesScreen,
-    CircleDetail: CircleDetailScreen,
-    CircleGeofence: CircleGeofence,
+    Circles: CircleStack,
     ChooseOrganization: ChooseOrganizationScreen,
   },
   {
+      initialRouteName: "Circles",
     contentComponent: SideBar,
     contentOptions: {
       activeTintColor: '#e91e63',
@@ -56,7 +68,7 @@ const AuthStack = createStackNavigator({
     NextOfKin: NextOfKinScreen,
     BankAccount: BankAccountScreen,
     Verify: VerifyScreen,
-    Co6: Co6Screen,
+    // Co6: Co6Screen,
   }, 
   { initialRouteName: 'AuthLink'}
 );
@@ -78,7 +90,7 @@ const BursarNavigator = createAppContainer(createSwitchNavigator(
     Intro: IntroStack,
   },
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: 'App',
   }
 ));
 

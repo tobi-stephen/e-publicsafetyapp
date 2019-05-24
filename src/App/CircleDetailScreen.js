@@ -62,6 +62,7 @@ class CircleDetailScreen extends React.Component {
     render() {
       const members = this.props.navigation.getParam('members', []);
       const geopoints = this.props.navigation.getParam('geopoints');
+      const name = this.props.navigation.getParam('name')
       return (
         <Container>
         <Header info>
@@ -74,15 +75,21 @@ class CircleDetailScreen extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Title>Circle Members</Title>
+            <Title>{name}</Title>
           </Body>
           <Right>
-            <Icon color="#fff" onPress={() => this.props.navigation.navigate('CircleGeofence', {geopoints})} name="eye" />
+            <Icon color="#fff" onPress={() => this.props.navigation.navigate('CircleGeofence', {geopoints, name})} name="eye" />
             </Right>
         </Header>
         <Content padder>
+            
             {members.length > 0?
-                <List>
+            <View>
+                <Card>
+                    <CardItem header>
+                        <Text style={{ color: 'grey' }}>Members</Text>
+                    </CardItem>
+                    <List>
                     {
                         members.map( (item, i) =>
                             <ListItem button onPress={() => {}} key={i}>
@@ -92,7 +99,33 @@ class CircleDetailScreen extends React.Component {
                             </ListItem>
                         )
                     }
-                </List>:
+                    </List>
+                </Card>
+                <Card>
+                    <CardItem header>
+                        <Text style={{ color: 'grey' }}>Action</Text>
+                    </CardItem>
+                    <CardItem>
+                        <Button
+                            onPress={() => this.props.navigation.navigate('CircleGeofence', {geopoints, name})}
+                            // onPress={() => alert(JSON.stringify(geopoints))}
+                            >
+                            <Icon color="#fff" name="eye"/>
+                            <Text>View map</Text>
+                        </Button>
+                    </CardItem>
+                    <CardItem>
+                     <Button
+                            // onPress={() => this.props.navigation.navigate('CircleGeofence', {geopoints})}
+                            onPress={() => alert("Coming soon")}
+                            >
+                            <Icon color="#fff" name="eye"/>
+                            <Text>Central user Lat/Lng</Text>
+                        </Button>
+                    </CardItem>
+                </Card>
+            </View>
+            :
                 <Card>
                     <CardItem>
                         <Text>No Circle Members found!</Text>
