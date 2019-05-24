@@ -69,26 +69,26 @@ class CircleGeofence extends React.Component {
 
     checkUser = async () => {
         
-        let track = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            latitudeDelta: LATITUDE_DELTA,
-            longitudeDelta: LONGITUDE_DELTA,
-        }
+        // let track = {
+        //     latitude: position.coords.latitude,
+        //     longitude: position.coords.longitude,
+        //     latitudeDelta: LATITUDE_DELTA,
+        //     longitudeDelta: LONGITUDE_DELTA,
+        // }
 
-        let point = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        };
+        // let point = {
+        //     lat: position.coords.latitude,
+        //     lng: position.coords.longitude
+        // };
 
-        let coordinate = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-        }
-
+        // let coordinate = {
+        //     latitude: position.coords.latitude,
+        //     longitude: position.coords.longitude
+        // }
+        let point = this.state.point
         let polygon = this.state.polygon
         
-        this.setState({coordinate})
+        // this.setState({coordinate})
         
         GeoFencing.containsLocation(point, polygon)
         .then(() => alert('user is within geofence'))
