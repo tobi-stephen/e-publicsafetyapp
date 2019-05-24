@@ -45,7 +45,7 @@ const AppStack = createDrawerNavigator(
     ChooseOrganization: ChooseOrganizationScreen,
   },
   {
-      initialRouteName: "Circles",
+      initialRouteName: "Home",
     contentComponent: SideBar,
     contentOptions: {
       activeTintColor: '#e91e63',

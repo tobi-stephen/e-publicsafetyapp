@@ -108,7 +108,6 @@ class CircleDetailScreen extends React.Component {
                     <CardItem>
                         <Button
                             onPress={() => this.props.navigation.navigate('CircleGeofence', {geopoints, name})}
-                            // onPress={() => alert(JSON.stringify(geopoints))}
                             >
                             <Icon color="#fff" name="eye"/>
                             <Text>View map</Text>
@@ -116,7 +115,6 @@ class CircleDetailScreen extends React.Component {
                     </CardItem>
                     <CardItem>
                      <Button
-                            // onPress={() => this.props.navigation.navigate('CircleGeofence', {geopoints})}
                             onPress={() => alert("Coming soon")}
                             >
                             <Icon color="#fff" name="eye"/>
